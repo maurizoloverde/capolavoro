@@ -1,58 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salonicco — Film del viaggio</title>
+<title>Salonicco</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<div id="progress"></div>
+
 <nav>
-    <a href="#prologo">Prologo</a>
-    <a href="#arrivo">Arrivo</a>
-    <a href="#vita">Vita</a>
-    <a href="#cambiamento">Cambiamento</a>
-    <a href="#ritorno">Ritorno</a>
+<a href="prologo.html">Prologo</a>
+<a href="arrivo.html">Arrivo</a>
+<a href="vita.html">Vita</a>
+<a href="cambiamento.html">Cambiamento</a>
+<a href="ritorno.html">Ritorno</a>
 </nav>
 
 <header class="scene">
-    <h1>SALONICCO</h1>
-    <p>Un viaggio che diventa memoria</p>
-    <button onclick="document.getElementById('prologo').scrollIntoView()">
-        Inizia
-    </button>
+<h1>SALONICCO</h1>
+<p>Film del viaggio Erasmus</p>
+<a href="prologo.html"><button>Inizia</button></a>
 </header>
 
-<section id="prologo" class="scene">
-    <h2>📍 Prologo</h2>
-    <div class="card">Prima di partire non capivo cosa stavo andando a vivere.</div>
-</section>
+<script>
+const scenes=document.querySelectorAll(".scene");
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")});
+},{threshold:0.2});
+scenes.forEach(s=>obs.observe(s));
 
-<section id="arrivo" class="scene">
-    <h2>✈️ Arrivo</h2>
-    <div class="card">Salonicco era luce, rumore, movimento. Troppo tutto insieme.</div>
-</section>
-
-<section id="vita" class="scene">
-    <h2>🌆 Vita</h2>
-    <div class="card">Giorni che si ripetono ma non sono mai uguali.</div>
-</section>
-
-<section id="cambiamento" class="scene">
-    <h2>🧠 Cambiamento</h2>
-    <div class="card">Non me ne sono accorto subito, ma stavo cambiando.</div>
-</section>
-
-<section id="ritorno" class="scene">
-    <h2>🌙 Ritorno</h2>
-    <div class="card">Non torni mai davvero come sei partito.</div>
-</section>
-
-<footer class="scene">
-    Film: Salonicco — Il mio viaggio
-</footer>
+window.addEventListener("scroll",()=>{
+const st=document.documentElement.scrollTop;
+const h=document.documentElement.scrollHeight-window.innerHeight;
+document.getElementById("progress").style.width=(st/h)*100+"%";
+});
+</script>
 
 </body>
 </html>

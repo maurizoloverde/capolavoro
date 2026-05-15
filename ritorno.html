@@ -1,24 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ritorno</title>
+<title>RITORNO</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <nav>
-    <a href="salonicco.html">← Indietro</a>
+<a href="index.html">Home</a>
 </nav>
 
 <section class="scene">
-    <h1>🌙 Ritorno</h1>
-    <div class="card">
-        Torni, ma non sei più lo stesso.
-    </div>
+<h1>RITORNO</h1>
+<div class="card">Tornare non è tornare uguali.</div>
 </section>
+
+<script>
+const scenes=document.querySelectorAll(".scene");
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")});
+},{threshold:0.2});
+scenes.forEach(s=>obs.observe(s));
+</script>
 
 </body>
 </html>

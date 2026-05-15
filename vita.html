@@ -1,24 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vita</title>
+<title>VITA</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <nav>
-    <a href="salonicco.html">← Indietro</a>
+<a href="index.html">Home</a>
 </nav>
 
 <section class="scene">
-    <h1>🌆 Vita</h1>
-    <div class="card">
-        La città diventa abitudine.
-    </div>
+<h1>VITA</h1>
+<div class="card">La città diventa abitudine.</div>
 </section>
+
+<script>
+const scenes=document.querySelectorAll(".scene");
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")});
+},{threshold:0.2});
+scenes.forEach(s=>obs.observe(s));
+</script>
 
 </body>
 </html>
