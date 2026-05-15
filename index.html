@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Salonicco</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div id="progress"></div>
@@ -25,16 +26,11 @@
 </header>
 
 <script>
-const scenes=document.querySelectorAll(".scene");
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")});
-},{threshold:0.2});
-scenes.forEach(s=>obs.observe(s));
-
 window.addEventListener("scroll",()=>{
 const st=document.documentElement.scrollTop;
 const h=document.documentElement.scrollHeight-window.innerHeight;
-document.getElementById("progress").style.width=(st/h)*100+"%";
+const bar=document.getElementById("progress");
+if(bar) bar.style.width=(st/h)*100+"%";
 });
 </script>
 
